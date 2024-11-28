@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actors</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <!-- Başlangıç Görseli -->
+  <div id="initial-screen" class="initial-screen"> 
+  
+    <div class="content"> 
+      <h1>Favori Aktörlerini Listele</h1> 
+      <p>KOLAYCA LİSTENE ULAŞMAK İÇİN TIKLA</p> 
+      <button class="custom-button" onclick="showActorList()">Listene ekleme yap...</button> 
+    </div> 
+  </div>
+
+<!-- Tema Değiştirme Butonu --> 
+ <div class="theme-toggle-container"> 
+  <button class="theme-toggle-button" onclick="toggleTheme()"> 
+    <span class="toggle-icon moon">🌙</span> 
+    <span class="toggle-icon sun">☀️</span> 
+  </button>
+
+
+  <!-- Aktör Listesi -->
+  <div id="actor-list-screen" class="hidden">
+    <h1>Aktör Listesi</h1>
+    <!-- Arama Giriş Alanı -->
+    <input type="text" id="searchInput" onkeyup="filterItems()" placeholder="Aktör Ara..." />
+    <div id="jsonKeys"></div>
+    <div class="actors-container" id="actors-container">
+      <p id="loading-message">Aktörler yükleniyor...</p>
+    </div>
+    <button class="add-actor-btn" onclick="showModal()">+ Yeni Aktör Ekle</button>
+    <button class="view-more-btn" onclick="showAllActors()">Devamını Gör</button>
+   
+
+
+    <!-- Modal Penceresi -->
+    <div class="modal hidden" id="actor-modal"> 
+      <div class="modal-content"> 
+        <h2 id="modal-title">Aktör Ekle</h2> 
+        <form id="actor-form"> 
+          <label for="actor-name">Aktör İsmi:</label> 
+          <input type="text" id="actor-name" required /> 
+          <label for="actor-description">Açıklama:</label> 
+          <input type="text" id="actor-description" /> 
+          <div class="button-container"> 
+            <button type="submit">Kaydet</button> 
+            <button type="button" onclick="closeModal()">İptal</button> 
+          </div> 
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
